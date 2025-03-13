@@ -37,7 +37,7 @@ export const config = {
   key: process.env.BROWSERSTACK_KEY,
 
   // Tests to run
-  specs: ['./test/specs/**/*.js'],
+  specs: ['./test/specs/*.js'],
   // Tests to exclude
   exclude: [],
   maxInstances: 1,
