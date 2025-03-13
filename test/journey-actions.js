@@ -19,7 +19,7 @@ export async function selectOption(option) {
 }
 
 export async function selectOptions(options) {
-  for (let option of options) {
+  for (const option of options) {
     await $(`aria/${option}`).click()
   }
 }
