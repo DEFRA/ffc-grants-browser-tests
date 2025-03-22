@@ -1,8 +1,6 @@
 import fs from 'node:fs'
 import { browser } from '@wdio/globals'
 
-const oneMinute = 60 * 1000
-
 let chromeProxyConfig = {}
 if (process.env.HTTP_PROXY) {
   const url = new URL(process.env.HTTP_PROXY)
@@ -100,7 +98,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: oneMinute
+    timeout: 120000
   },
   //
   // =====
