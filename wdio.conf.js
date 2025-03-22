@@ -229,9 +229,7 @@ export const config = {
    * @param {number} result 0 - command success, 1 - command error
    * @param {object} error error object if any
    */
-  afterCommand: async function (commandName, args, result, error) {
-    await browser.takeScreenshot()
-  },
+  // afterCommand: async function (commandName, args, result, error) {},
   /**
    * Gets executed after all tests are done. You still have access to all global variables from
    * the test.
