@@ -1,4 +1,10 @@
 export default class Ensure {
+    static screenMatchesDesign() {
+        const instance = new Ensure()
+        instance.assertScreenshot = true
+        return instance
+    }
+
     static url() {
         const instance = new Ensure()
         instance.assertUrl = true
@@ -17,6 +23,11 @@ export default class Ensure {
     }
 
     async perform() {
+        if (this.assertScreenshot) {
+            const screenPath = (await browser.getUrl()).split('/').pop()
+            await browser.checkFullPageScreen(screenPath, {})
+        }
+
         if (this.assertUrl) {
             const doesActualUrlEndWithExpectedPath = await this.#pollForSuccess(async () => {
                 const actualUrl = await browser.getUrl()

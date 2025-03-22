@@ -1,4 +1,5 @@
 import allure from 'allure-commandline'
+import path from 'node:path'
 
 const debug = process.env.DEBUG
 const oneMinute = 60 * 1000
@@ -65,19 +66,19 @@ export const config = {
   capabilities: debug
     ? [{ browserName: 'chrome' }]
     : [
-        {
-          maxInstances: 1,
-          browserName: 'chrome',
-          'goog:chromeOptions': {
-            args: [
-              '--no-sandbox',
-              '--disable-infobars',
-              '--disable-gpu',
-              '--window-size=1920,1080'
-            ]
-          }
+      {
+        maxInstances: 1,
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+          args: [
+            '--no-sandbox',
+            '--disable-infobars',
+            '--disable-gpu',
+            '--window-size=1920,1080'
+          ]
         }
-      ],
+      }
+    ],
 
   execArgv,
 
@@ -129,7 +130,17 @@ export const config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  // services: [],
+  services: [
+    [
+      "visual",
+      {
+        baselineFolder: path.join(process.cwd(), "test", "screenshots"),
+        formatImageName: "{tag}-{logName}-{width}x{height}",
+        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        savePerInstance: true,
+      },
+    ],
+  ],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber

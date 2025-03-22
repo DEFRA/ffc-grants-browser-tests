@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import { browser } from '@wdio/globals'
 
 let chromeProxyConfig = {}
@@ -73,6 +74,24 @@ export const config = {
   waitforInterval: 200,
   connectionRetryTimeout: 6000,
   connectionRetryCount: 3,
+
+  //
+  // Test runner services
+  // Services take over a specific job you don't want to take care of. They enhance
+  // your test setup with almost no effort. Unlike plugins, they don't add new
+  // commands. Instead, they hook themselves up into the test process.
+  services: [
+    [
+      "visual",
+      {
+        baselineFolder: path.join(process.cwd(), "test", "screenshots"),
+        formatImageName: "{tag}-{logName}-{width}x{height}",
+        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        savePerInstance: true,
+      },
+    ],
+  ],
+
   framework: 'mocha',
 
   reporters: [
