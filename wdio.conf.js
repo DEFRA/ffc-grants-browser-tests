@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { browser } from '@wdio/globals'
 
 const oneMinute = 60 * 1000
 
@@ -211,7 +212,9 @@ export const config = {
    * @param {number} result 0 - command success, 1 - command error
    * @param {object} error error object if any
    */
-  // afterCommand: function (commandName, args, result, error) {},
+  afterCommand: async function (commandName, args, result, error) {
+    await browser.takeScreenshot()
+  },
   /**
    * Gets executed after all tests are done. You still have access to all global variables from
    * the test.
