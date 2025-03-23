@@ -1,3 +1,4 @@
+import path from 'node:path'
 import allure from 'allure-commandline'
 
 const debug = process.env.DEBUG
@@ -11,8 +12,7 @@ if (debug) {
 }
 
 export const config = {
-  user: process.env.BROWSERSTACK_USER || 'andrewdeacon_Rr5F6u',
-  key: process.env.BROWSERSTACK_KEY || 'xaFDkqpu8SzKxt2sN4Fs',
+
   //
   // ====================
   // Runner Configuration
@@ -69,15 +69,6 @@ export const config = {
     : [
         {
           maxInstances: 1,
-          browserName: 'chrome',
-          'goog:chromeOptions': {
-            args: [
-              '--no-sandbox',
-              '--disable-infobars',
-              '--disable-gpu',
-              '--window-size=1920,1080'
-            ]
-          }
         }
       ],
 
@@ -137,19 +128,24 @@ export const config = {
       {
         testObservability: true,
         testObservabilityOptions: {
-          user: process.env.BROWSERSTACK_USER || 'andrewdeacon_Rr5F6u',
-          key: process.env.BROWSERSTACK_KEY || 'xaFDkqpu8SzKxt2sN4Fs',
-          projectName: 'project-name-as-set-in-browserstack',
-          buildName: `test-run-${process.env.ENVIRONMENT || 'test'}`
+          user: process.env.BROWSERSTACK_USER || '',
+          key: process.env.BROWSERSTACK_KEY || '',
+          projectName: 'ffc-grants-browser-tests',
+          buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
         },
         acceptInsecureCerts: true,
         forceLocal: false,
-        browserstackLocal: true,
-        opts: {
-          proxyHost: 'localhost',
-          proxyPort: 3128
-        }
+        browserstackLocal: true
       }
+    ],
+    [
+      "visual",
+      {
+        baselineFolder: path.join(process.cwd(), "test", "screenshots"),
+        formatImageName: "{tag}-{logName}-{width}x{height}",
+        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        savePerInstance: true,
+      },
     ]
   ],
   //
@@ -188,7 +184,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: debug ? oneHour : 60000
+    timeout: debug ? oneHour : 300000
   },
   //
   // =====

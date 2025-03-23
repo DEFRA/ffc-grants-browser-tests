@@ -50,7 +50,15 @@ export const config = {
 
   capabilities: [
     {
-      browserName: 'Chrome', // Set as required
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: [
+          '--no-sandbox',
+          '--disable-infobars',
+          '--disable-gpu',
+          '--window-size=1920,1080'
+        ]
+      },
       'bstack:options': {
         browserVersion: 'latest',
         os: 'Windows',
@@ -63,11 +71,11 @@ export const config = {
     [
       'browserstack',
       {
-        testObservability: true, // Disable if you do not want to use the browserstack test observer functionality
+        testObservability: true,
         testObservabilityOptions: {
           user: process.env.BROWSERSTACK_USER,
           key: process.env.BROWSERSTACK_KEY,
-          projectName: 'cdp-node-env-test-suite', // should match project in browserstack
+          projectName: 'ffc-grants-browser-tests',
           buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
         },
         acceptInsecureCerts: true,
@@ -78,6 +86,15 @@ export const config = {
           proxyPort: 3128
         }
       }
+    ],
+    [
+      "visual",
+      {
+        baselineFolder: path.join(process.cwd(), "test", "screenshots"),
+        formatImageName: "{tag}-{logName}-{width}x{height}",
+        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        savePerInstance: true,
+      },
     ]
   ],
 

@@ -1,5 +1,5 @@
-import allure from 'allure-commandline'
 import path from 'node:path'
+import allure from 'allure-commandline'
 
 const debug = process.env.DEBUG
 const oneMinute = 60 * 1000
@@ -139,7 +139,7 @@ export const config = {
         screenshotPath: path.join(process.cwd(), "test", "temp"),
         savePerInstance: true,
       },
-    ],
+    ]
   ],
   //
   // Framework you want to run your specs with.
@@ -177,7 +177,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: debug ? oneHour : 60000
+    timeout: debug ? oneHour : 300000
   },
   //
   // =====
