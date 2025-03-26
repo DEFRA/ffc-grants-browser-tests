@@ -12,6 +12,8 @@ if (debug) {
 }
 
 export const config = {
+  user: process.env.BROWSERSTACK_USERNAME,
+  key: process.env.BROWSERSTACK_KEY,
 
   //
   // ====================
@@ -64,13 +66,16 @@ export const config = {
   // https://saucelabs.com/platform/platform-configurator
   //
 
-  capabilities: debug
-    ? [{ browserName: 'chrome' }]
-    : [
-        {
-          maxInstances: 1,
-        }
-      ],
+  capabilities: [{
+    maxInstances: 1,
+    acceptInsecureCerts: true,
+    browserName: 'Safari',
+    'bstack:options': {
+      os: 'OS X',
+      osVersion: 'Monterey',
+      browserVersion: 'latest'
+    },
+  }],
 
   execArgv,
 
@@ -124,29 +129,25 @@ export const config = {
   // commands. Instead, they hook themselves up into the test process.
   services: [
     [
-      'browserstack',
-      {
-        testObservability: true,
-        testObservabilityOptions: {
-          user: process.env.BROWSERSTACK_USER || '',
-          key: process.env.BROWSERSTACK_KEY || '',
-          projectName: 'ffc-grants-browser-tests',
-          buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
-        },
-        acceptInsecureCerts: true,
-        forceLocal: false,
-        browserstackLocal: true
-      }
-    ],
-    [
-      "visual",
-      {
-        baselineFolder: path.join(process.cwd(), "test", "screenshots"),
-        formatImageName: "{tag}-{logName}-{width}x{height}",
-        screenshotPath: path.join(process.cwd(), "test", "temp"),
-        savePerInstance: true,
+    'browserstack', {
+      testObservability: true,
+      testObservabilityOptions: {
+        projectName: 'ffc-grants-browser-tests',
+        buildName: `ffc-grants-browser-tests-local`
       },
-    ]
+      acceptInsecureCerts: true,
+      forceLocal: true,
+      browserstackLocal: true
+    }
+  ],
+  [
+    "visual", {
+      baselineFolder: path.join(process.cwd(), "test", "screenshots"),
+      formatImageName: "{tag}-{logName}-{width}x{height}",
+      screenshotPath: path.join(process.cwd(), "test", "temp"),
+      savePerInstance: true,
+    },
+  ]
   ],
   //
   // Framework you want to run your specs with.

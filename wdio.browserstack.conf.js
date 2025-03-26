@@ -15,8 +15,6 @@ if (process.env.HTTP_PROXY) {
   global.GLOBAL_AGENT.HTTP_PROXY = process.env.HTTP_PROXY
 }
 
-const oneMinute = 60 * 1000
-
 export const config = {
   //
   // ====================
@@ -48,33 +46,22 @@ export const config = {
     }
   },
 
-  capabilities: [
-    {
-      browserName: 'chrome',
-      'goog:chromeOptions': {
-        args: [
-          '--no-sandbox',
-          '--disable-infobars',
-          '--disable-gpu',
-          '--window-size=1920,1080'
-        ]
-      },
-      'bstack:options': {
-        browserVersion: 'latest',
-        os: 'Windows',
-        osVersion: '11'
-      }
-    }
-  ],
+  capabilities: [{
+    maxInstances: 1,
+    acceptInsecureCerts: true,
+    browserName: 'Safari',
+    'bstack:options': {
+      os: 'OS X',
+      osVersion: 'Monterey',
+      browserVersion: 'latest'
+    },
+  }],
 
   services: [
     [
-      'browserstack',
-      {
+      'browserstack', {
         testObservability: true,
         testObservabilityOptions: {
-          user: process.env.BROWSERSTACK_USER,
-          key: process.env.BROWSERSTACK_KEY,
           projectName: 'ffc-grants-browser-tests',
           buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
         },
@@ -88,8 +75,7 @@ export const config = {
       }
     ],
     [
-      "visual",
-      {
+      "visual", {
         baselineFolder: path.join(process.cwd(), "test", "screenshots"),
         formatImageName: "{tag}-{logName}-{width}x{height}",
         screenshotPath: path.join(process.cwd(), "test", "temp"),
@@ -134,7 +120,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: oneMinute
+    timeout: 300000
   },
 
   // Hooks
