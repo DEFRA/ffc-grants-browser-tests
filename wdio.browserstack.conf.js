@@ -43,7 +43,7 @@ export const config = {
 
   commonCapabilities: {
     'bstack:options': {
-      buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}` // configure as required
+      buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
     }
   },
 
@@ -63,8 +63,10 @@ export const config = {
       'browserstack', {
         testObservability: true,
         testObservabilityOptions: {
+          user: process.env.BROWSERSTACK_USER,
+          key: process.env.BROWSERSTACK_KEY,
           projectName: 'ffc-grants-browser-tests',
-          buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
+          buildName: `test-run-${process.env.ENVIRONMENT}`
         },
         acceptInsecureCerts: true,
         forceLocal: false,
