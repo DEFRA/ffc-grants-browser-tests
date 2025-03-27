@@ -3,6 +3,9 @@
 echo "run_id: $RUN_ID"
 npm run test:browserstack
 
+echo "checking browserstack local"
+ls -la ~/.browserstack || true
+
 npm run report:publish
 publish_exit_code=$?
 
