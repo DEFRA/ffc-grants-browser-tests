@@ -98,7 +98,7 @@ describe('Adding Value', () => {
       Enter.value('High Street').for('Address line 1'),
       Enter.value('Denton').for('Address line 2 (optional)'),
       Enter.value('Northampton').for('Town'),
-      Enter.value('Northamptonshire').for('County'),
+      Enter.value('Northamptonshire').for('County (optional)'),
       Enter.value('NN7 3NN').for('Postcode'),
       Click.on('Continue'),
 
@@ -113,8 +113,8 @@ describe('Adding Value', () => {
       Enter.value('Test Farm').for('Address line 1'),
       Enter.value('Cogenhoe').for('Address line 2 (optional)'),
       Enter.value('Northampton').for('Town'),
-      Enter.value('Northamptonshire').for('County'),
-      Enter.value('NN7 1NN').for('Business postcode'),
+      Enter.value('Northamptonshire').for('County (optional)'),
+      Enter.value('NN7 1NN').for('Postcode'),
       Enter.value('NN7 2NN').for('Project postcode'),
       Click.on('Continue'),
 
