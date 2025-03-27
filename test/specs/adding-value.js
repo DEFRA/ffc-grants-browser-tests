@@ -1,9 +1,9 @@
-import Actor from '../screenplay/Actor.js'
-import Click from '../screenplay/tasks/Click.js'
-import Ensure from '../screenplay/tasks/Ensure.js'
-import Enter from '../screenplay/tasks/Enter.js'
-import Navigate from '../screenplay/tasks/Navigate.js'
-import Select from '../screenplay/tasks/Select.js'
+import Actor from '../screenplay/actor.js'
+import Click from '../screenplay/tasks/click.js'
+import Ensure from '../screenplay/tasks/ensure.js'
+import Enter from '../screenplay/tasks/enter.js'
+import Navigate from '../screenplay/tasks/navigate.js'
+import Select from '../screenplay/tasks/select.js'
 
 describe('Adding Value', () => {
   it('should complete Adding Value journey', async () => {
