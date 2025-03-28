@@ -51,6 +51,7 @@ export const config = {
     {
       browserName: 'Chrome',
       'bstack:options': {
+        idleTimeout: 300,
         resolution: '1920x1080',
         browserVersion: 'latest',
         os: 'Windows',
@@ -60,6 +61,7 @@ export const config = {
     {
       browserName: 'Safari',
       'bstack:options': {
+        idleTimeout: 300,
         deviceOrientation: 'portrait',
         deviceName: 'iPhone 16',
         osVersion: '18'
