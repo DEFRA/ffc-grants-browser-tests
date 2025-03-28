@@ -132,13 +132,12 @@ export const config = {
   // commands. Instead, they hook themselves up into the test process.
   services: [
     [
-      "visual",
-      {
-        baselineFolder: path.join(process.cwd(), "test", "snapshots"),
+      "visual", {
+        baselineFolder: path.join(process.cwd(), "test", "snapshots", "expected"),
         formatImageName: "{tag}-{width}x{height}",
-        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        screenshotPath: path.join(process.cwd(), "test", "snapshots", "actual"),
         savePerInstance: true,
-      },
+      }
     ]
   ],
   //

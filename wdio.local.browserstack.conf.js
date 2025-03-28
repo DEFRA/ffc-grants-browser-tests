@@ -151,11 +151,11 @@ export const config = {
     ],
     [
       "visual", {
-        baselineFolder: path.join(process.cwd(), "test", "snapshots"),
+        baselineFolder: path.join(process.cwd(), "test", "snapshots", "expected"),
         formatImageName: "{tag}-{width}x{height}",
-        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        screenshotPath: path.join(process.cwd(), "test", "snapshots", "actual"),
         savePerInstance: true,
-      },
+      }
     ]
   ],
   //

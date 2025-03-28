@@ -8,6 +8,6 @@ export default class EnsureSnapshot {
 
     async perform() {
         const screenPath = (await browser.getUrl()).split('/').pop()
-        await browser.checkFullPageScreen(`${this.grantCode}-${screenPath}`, {})
+        await expect(browser).toMatchFullPageSnapshot(`${this.grantCode}-${screenPath}`, {})
     }
 }
