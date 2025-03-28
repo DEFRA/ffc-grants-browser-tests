@@ -1,3 +1,4 @@
+import { browser } from '@wdio/globals'
 import Actor from '../screenplay/actor.js'
 import Confirm from '../screenplay/tasks/confirm.js'
 import Continue from '../screenplay/tasks/continue.js'
@@ -10,6 +11,7 @@ import Start from '../screenplay/tasks/start.js'
 describe('Adding Value', () => {
   it('should complete application journey', async () => {
     const agent = new Actor()
+    await browser.maximizeWindow()
 
     await agent.attemptsTo([
       Navigate.to('/adding-value/start'),

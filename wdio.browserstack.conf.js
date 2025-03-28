@@ -39,7 +39,7 @@ export const config = {
   specs: ['./test/specs/*.js'],
   // Tests to exclude
   exclude: [],
-  maxInstances: 1,
+  maxInstances: 10,
 
   commonCapabilities: {
     'bstack:options': {
@@ -64,15 +64,14 @@ export const config = {
         testObservability: true,
         testObservabilityOptions: {
           projectName: 'ffc-grants-browser-tests',
-          buildName: `test-run-${process.env.ENVIRONMENT}`
+          buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
         },
         acceptInsecureCerts: true,
         forceLocal: false,
         browserstackLocal: true,
         opts: {
           proxyHost: 'localhost',
-          proxyPort: 3128,
-          verbose: 'true'
+          proxyPort: 3128
         }
       }
     ],
@@ -88,7 +87,7 @@ export const config = {
 
   execArgv: ['--loader', 'esm-module-alias/loader'],
 
-  logLevel: 'debug',
+  logLevel: 'info',
 
   // Number of failures before the test suite bails.
   bail: 0,
@@ -122,7 +121,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: 300000
+    timeout: 600000
   },
 
   // Hooks

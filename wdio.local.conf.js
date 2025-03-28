@@ -176,7 +176,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: debug ? oneHour : 300000
+    timeout: debug ? oneHour : 600000
   },
   //
   // =====
