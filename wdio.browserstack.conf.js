@@ -80,7 +80,8 @@ export const config = {
         browserstackLocal: true,
         opts: {
           proxyHost: 'localhost',
-          proxyPort: 3128
+          proxyPort: 3128,
+          verbose: 'true'
         }
       }
     ],
@@ -96,7 +97,7 @@ export const config = {
 
   execArgv: ['--loader', 'esm-module-alias/loader'],
 
-  logLevel: 'info',
+  logLevel: 'debug',
 
   // Number of failures before the test suite bails.
   bail: 0,
