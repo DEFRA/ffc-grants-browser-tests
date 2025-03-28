@@ -80,7 +80,7 @@ export const config = {
     ],
     [
       "visual", {
-        baselineFolder: path.join(process.cwd(), "test", "screenshots"),
+        baselineFolder: path.join(process.cwd(), "test", "snapshots"),
         formatImageName: "{tag}-{width}x{height}",
         screenshotPath: path.join(process.cwd(), "test", "temp"),
         savePerInstance: true,
