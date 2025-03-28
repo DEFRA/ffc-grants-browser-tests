@@ -13,3 +13,4 @@ allure-results/
 FAILED
 temp
 *.log
+browserstack.err

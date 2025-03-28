@@ -59,23 +59,32 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 1,
+  maxInstances: 10,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://saucelabs.com/platform/platform-configurator
   //
 
-  capabilities: [{
-    maxInstances: 1,
-    acceptInsecureCerts: true,
-    browserName: 'Safari',
-    'bstack:options': {
-      os: 'OS X',
-      osVersion: 'Monterey',
-      browserVersion: 'latest'
+  capabilities: [
+    {
+      browserName: 'Chrome',
+      'bstack:options': {
+        resolution: '1920x1080',
+        browserVersion: 'latest',
+        os: 'Windows',
+        osVersion: '11'
+      }
     },
-  }],
+    {
+      browserName: 'Safari',
+      'bstack:options': {
+        deviceOrientation: 'portrait',
+        deviceName: 'iPhone 16',
+        osVersion: '18'
+      }
+    }
+  ],
 
   execArgv,
 
@@ -129,25 +138,25 @@ export const config = {
   // commands. Instead, they hook themselves up into the test process.
   services: [
     [
-    'browserstack', {
-      testObservability: true,
-      testObservabilityOptions: {
-        projectName: 'ffc-grants-browser-tests',
-        buildName: `ffc-grants-browser-tests-local`
+      'browserstack', {
+        testObservability: true,
+        testObservabilityOptions: {
+          projectName: 'ffc-grants-browser-tests',
+          buildName: `ffc-grants-browser-tests-local`
+        },
+        acceptInsecureCerts: true,
+        forceLocal: true,
+        browserstackLocal: true
+      }
+    ],
+    [
+      "visual", {
+        baselineFolder: path.join(process.cwd(), "test", "snapshots"),
+        formatImageName: "{tag}-{width}x{height}",
+        screenshotPath: path.join(process.cwd(), "test", "temp"),
+        savePerInstance: true,
       },
-      acceptInsecureCerts: true,
-      forceLocal: true,
-      browserstackLocal: true
-    }
-  ],
-  [
-    "visual", {
-      baselineFolder: path.join(process.cwd(), "test", "snapshots"),
-      formatImageName: "{tag}-{width}x{height}",
-      screenshotPath: path.join(process.cwd(), "test", "temp"),
-      savePerInstance: true,
-    },
-  ]
+    ]
   ],
   //
   // Framework you want to run your specs with.
@@ -185,7 +194,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: debug ? oneHour : 300000
+    timeout: debug ? oneHour : 600000
   },
   //
   // =====

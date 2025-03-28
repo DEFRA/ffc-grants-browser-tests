@@ -8,7 +8,7 @@ import Select from '../screenplay/tasks/select.js'
 import Start from '../screenplay/tasks/start.js'
 
 describe('Adding Value', () => {
-  it('should complete Adding Value journey', async () => {
+  it('should complete application journey', async () => {
     const agent = new Actor()
 
     await agent.attemptsTo([
