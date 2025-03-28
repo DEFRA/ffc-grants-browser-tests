@@ -47,16 +47,25 @@ export const config = {
     }
   },
 
-  capabilities: [{
-    maxInstances: 1,
-    acceptInsecureCerts: true,
-    browserName: 'Safari',
-    'bstack:options': {
-      os: 'OS X',
-      osVersion: 'Monterey',
-      browserVersion: 'latest'
+  capabilities: [
+    {
+      browserName: 'Chrome',
+      'bstack:options': {
+        resolution: '1920x1080',
+        browserVersion: 'latest',
+        os: 'Windows',
+        osVersion: '11'
+      }
     },
-  }],
+    {
+      browserName: 'Safari',
+      'bstack:options': {
+        deviceOrientation: 'portrait',
+        deviceName: 'iPhone 16',
+        osVersion: '18'
+      }
+    }
+  ],
 
   services: [
     [
