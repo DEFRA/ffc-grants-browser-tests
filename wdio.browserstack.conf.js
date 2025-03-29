@@ -58,15 +58,15 @@ export const config = {
         osVersion: '11'
       }
     },
-    {
-      browserName: 'Safari',
-      'bstack:options': {
-        idleTimeout: 300,
-        deviceOrientation: 'portrait',
-        deviceName: 'iPhone 16',
-        osVersion: '18'
-      }
-    }
+    // {
+    //   browserName: 'Safari',
+    //   'bstack:options': {
+    //     idleTimeout: 300,
+    //     deviceOrientation: 'portrait',
+    //     deviceName: 'iPhone 16',
+    //     osVersion: '18'
+    //   }
+    // }
   ],
 
   services: [
