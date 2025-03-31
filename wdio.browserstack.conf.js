@@ -53,7 +53,7 @@ export const config = {
         resolution: '1920x1080',
         browserVersion: 'latest',
         os: 'Windows',
-        osVersion: '10'
+        osVersion: '11'
       }
     },
     // {
@@ -97,7 +97,7 @@ export const config = {
   bail: 0,
   waitforTimeout: 10000,
   waitforInterval: 200,
-  connectionRetryTimeout: 6000,
+  connectionRetryTimeout: 12000,
   connectionRetryCount: 3,
 
   framework: 'mocha',
