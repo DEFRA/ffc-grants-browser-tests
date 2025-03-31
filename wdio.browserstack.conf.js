@@ -73,7 +73,7 @@ export const config = {
         testObservability: true,
         testObservabilityOptions: {
           user: process.env.BROWSERSTACK_USERNAME,
-          key: process.env.BROWSERSTACK_ACCESS_KEY,
+          key: process.env.BROWSERSTACK_KEY,
           projectName: 'ffc-grants-browser-tests',
           buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
         },
