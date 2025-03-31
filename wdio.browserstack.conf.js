@@ -88,14 +88,6 @@ export const config = {
           verbose: 'true'
         }
       }
-    ],
-    [
-      "visual", {
-        baselineFolder: path.join(process.cwd(), "test", "snapshots", "expected"),
-        formatImageName: "{tag}-{width}x{height}",
-        screenshotPath: path.join(process.cwd(), "test", "snapshots", "actual"),
-        savePerInstance: true,
-      }
     ]
   ],
 
