@@ -53,7 +53,7 @@ export const config = {
         resolution: '1920x1080',
         browserVersion: 'latest',
         os: 'Windows',
-        osVersion: '11'
+        osVersion: '10'
       }
     },
     // {
