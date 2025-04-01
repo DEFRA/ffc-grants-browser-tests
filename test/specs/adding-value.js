@@ -57,47 +57,47 @@ describe('Adding Value', () => {
       Select.option('Yes'),
       Continue.journey(),
 
-      // // products-processed
-      // Ensure.url().is('products-processed'),
-      // Ensure.heading().is('What type of produce is being processed?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.option('Arable produce'),
-      // Continue.journey(),
+      // products-processed
+      Ensure.url().is('products-processed'),
+      Ensure.heading().is('What type of produce is being processed?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Arable produce'),
+      Continue.journey(),
 
-      // // adding-value
-      // Ensure.url().is('adding-value'),
-      // Ensure.heading().is('How will this project add value to the produce?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.option('Introducing a new product to your farm'),
-      // Continue.journey(),
+      // adding-value
+      Ensure.url().is('adding-value'),
+      Ensure.heading().is('How will this project add value to the produce?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Introducing a new product to your farm'),
+      Continue.journey(),
 
-      // // project-impact
-      // Ensure.url().is('project-impact'),
-      // Ensure.heading().is('What impact will this project have?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.options([
-      //   'Increasing range of added-value products',
-      //   'Increasing volume of added-value products'
-      // ]),      
-      // Continue.journey(),
+      // project-impact
+      Ensure.url().is('project-impact'),
+      Ensure.heading().is('What impact will this project have?'),
+      Ensure.screenMatchesDesign(),
+      Select.options([
+        'Increasing range of added-value products',
+        'Increasing volume of added-value products'
+      ]),      
+      Continue.journey(),
 
-      // // future-customers
-      // Ensure.url().is('future-customers'),
-      // Ensure.heading().is('Who will your new customers be after the project?'),
-      // Ensure.screenMatchesDesign(),
-      // Continue.journey(),
+      // future-customers
+      Ensure.url().is('future-customers'),
+      Ensure.heading().is('Who will your new customers be after the project?'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
 
-      // // collaboration
-      // Ensure.url().is('collaboration'),
-      // Ensure.heading().is('Will you work in partnership or collaborate with other farmers or producers?'),
-      // Ensure.screenMatchesDesign(),
-      // Continue.journey(),
+      // collaboration
+      Ensure.url().is('collaboration'),
+      Ensure.heading().is('Will you work in partnership or collaborate with other farmers or producers?'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
 
-      // // environmental-impact
-      // Ensure.url().is('environmental-impact'),
-      // Ensure.heading().is('How will this project improve the environment?'),
-      // Ensure.screenMatchesDesign(),
-      // Continue.journey(),
+      // environmental-impact
+      Ensure.url().is('environmental-impact'),
+      Ensure.heading().is('How will this project improve the environment?'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
 
       // // score-results
       // Ensure.url().is('score-results'),
