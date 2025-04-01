@@ -25,12 +25,40 @@ export const config = {
   capabilities: [
     {
       browserName: 'Chrome',
+      'wdio-ics:options': {
+        logName: 'chrome-win',
+      },
       'bstack:options': {
         idleTimeout: 300,
         resolution: '1920x1080',
         browserVersion: 'latest',
         os: 'Windows',
         osVersion: '11'
+      }
+    },
+    {
+      browserName: 'Chrome',
+      'wdio-ics:options': {
+        logName: 'chrome-mac',
+      },
+      'bstack:options': {
+        idleTimeout: 300,
+        resolution: '1920x1080',
+        browserVersion: 'latest',
+        os: 'OS X',
+        osVersion: 'Monterey'
+      }
+    },
+    {
+      browserName: 'Safari',
+      'wdio-ics:options': {
+        logName: 'safari-iphone',
+      },
+      'bstack:options': {
+        idleTimeout: 300,
+        deviceOrientation: 'portrait',
+        deviceName: 'iPhone 16',
+        osVersion: '18'
       }
     }
   ],
