@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 .cache
+.env
 .npm/
 .png
 .vscode
@@ -15,3 +16,4 @@ npm-debug.log
 FAILED
 logs
 test/snapshots/actual
+test/snapshots/diff

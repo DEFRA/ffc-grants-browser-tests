@@ -15,6 +15,7 @@ export const config = {
         logName: 'chrome-win',
       },
       'bstack:options': {
+        idleTimeout: 300,
         resolution: '1920x1080',
         browserVersion: 'latest',
         os: 'Windows',
@@ -27,6 +28,7 @@ export const config = {
         logName: 'chrome-mac',
       },
       'bstack:options': {
+        idleTimeout: 300,
         resolution: '1920x1080',
         browserVersion: 'latest',
         os: 'OS X',
@@ -36,9 +38,10 @@ export const config = {
     {
       browserName: 'Safari',
       'wdio-ics:options': {
-        logName: 'chrome-iphone',
+        logName: 'safari-iphone',
       },
       'bstack:options': {
+        idleTimeout: 300,
         deviceOrientation: 'portrait',
         deviceName: 'iPhone 16',
         osVersion: '18'

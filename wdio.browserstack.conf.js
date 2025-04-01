@@ -52,6 +52,12 @@ export const config = {
           proxyPort: 3128
         }
       }
+    ],
+    [
+      "visual", {
+        formatImageName: "{logName}-{tag}-{width}x{height}",
+        savePerInstance: true,
+      }
     ]
   ],
   execArgv: ['--loader', 'esm-module-alias/loader'],
