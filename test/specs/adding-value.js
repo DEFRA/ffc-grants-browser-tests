@@ -99,77 +99,77 @@ describe('Adding Value', () => {
       Ensure.screenMatchesDesign(),
       Continue.journey(),
 
-      // // score-results
-      // Ensure.url().is('score-results'),
-      // Ensure.heading().is('Score results'),
-      // Ensure.screenMatchesDesign(),
-      // Continue.journey(),
+      // score-results
+      Ensure.url().is('score-results'),
+      Ensure.heading().is('Score results'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
 
-      // // business-details
-      // Ensure.url().is('business-details'),
-      // Ensure.heading().is('Business Details'),
-      // Ensure.screenMatchesDesign(),
-      // Continue.journey(),
+      // business-details
+      Ensure.url().is('business-details'),
+      Ensure.heading().is('Business Details'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
 
-      // // who-is-applying-for-this-grant
-      // Ensure.url().is('who-is-applying-for-this-grant'),
-      // Ensure.heading().is('Who is applying for this grant?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.option('Agent'),
-      // Continue.journey(),
+      // who-is-applying-for-this-grant
+      Ensure.url().is('who-is-applying-for-this-grant'),
+      Ensure.heading().is('Who is applying for this grant?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Agent'),
+      Continue.journey(),
 
-      // // agent-details
-      // Ensure.url().is('agent-details'),
-      // Ensure.heading().is(`Agent's details`),
-      // Ensure.screenMatchesDesign(),
-      // Enter.value('John').for('First name'),
-      // Enter.value('Test-Agent').for('Last name'),
-      // Enter.value('Test Agency Ltd').for('Business name'),
-      // Enter.value('cl-defra-gae-test-agent-email@equalexperts.com').for('Email address'),
-      // Enter.value('cl-defra-gae-test-agent-email@equalexperts.com').for('Confirm email address'),
-      // Enter.value('07777 654321').for('Mobile number'),
-      // Enter.value('01604 654321').for('Landline number'),
-      // Enter.value('High Street').for('Address line 1'),
-      // Enter.value('Denton').for('Address line 2 (optional)'),
-      // Enter.value('Northampton').for('Town'),
-      // Enter.value('Northamptonshire').for('County (optional)'),
-      // Enter.value('NN7 3NN').for('Postcode'),
-      // Continue.journey(),
+      // agent-details
+      Ensure.url().is('agent-details'),
+      Ensure.heading().is(`Agent's details`),
+      Ensure.screenMatchesDesign(),
+      Enter.value('John').for('First name'),
+      Enter.value('Test-Agent').for('Last name'),
+      Enter.value('Test Agency Ltd').for('Business name'),
+      Enter.value('cl-defra-gae-test-agent-email@equalexperts.com').for('Email address'),
+      Enter.value('cl-defra-gae-test-agent-email@equalexperts.com').for('Confirm email address'),
+      Enter.value('07777 654321').for('Mobile number'),
+      Enter.value('01604 654321').for('Landline number'),
+      Enter.value('High Street').for('Address line 1'),
+      Enter.value('Denton').for('Address line 2 (optional)'),
+      Enter.value('Northampton').for('Town'),
+      Enter.value('Northamptonshire').for('County (optional)'),
+      Enter.value('NN7 3NN').for('Postcode'),
+      Continue.journey(),
 
-      // // applicant-details
-      // Ensure.url().is('applicant-details'),
-      // Ensure.heading().is(`Applicant's details`),
-      // Ensure.screenMatchesDesign(),
-      // Enter.value('James').for('First name'),
-      // Enter.value('Test-Farmer').for('Last name'),
-      // Enter.value('cl-defra-gae-test-applicant-email@equalexperts.com').for('Email address'),
-      // Enter.value('cl-defra-gae-test-applicant-email@equalexperts.com').for('Confirm email address'),
-      // Enter.value('07777 123456').for('Mobile number'),
-      // Enter.value('01604 123456').for('Landline number'),
-      // Enter.value('Test Farm').for('Address line 1'),
-      // Enter.value('Cogenhoe').for('Address line 2 (optional)'),
-      // Enter.value('Northampton').for('Town'),
-      // Enter.value('Northamptonshire').for('County (optional)'),
-      // Enter.value('NN7 1NN').for('Postcode'),
-      // Enter.value('NN7 2NN').for('Project postcode'),
-      // Continue.journey(),
+      // applicant-details
+      Ensure.url().is('applicant-details'),
+      Ensure.heading().is(`Applicant's details`),
+      Ensure.screenMatchesDesign(),
+      Enter.value('James').for('First name'),
+      Enter.value('Test-Farmer').for('Last name'),
+      Enter.value('cl-defra-gae-test-applicant-email@equalexperts.com').for('Email address'),
+      Enter.value('cl-defra-gae-test-applicant-email@equalexperts.com').for('Confirm email address'),
+      Enter.value('07777 123456').for('Mobile number'),
+      Enter.value('01604 123456').for('Landline number'),
+      Enter.value('Test Farm').for('Address line 1'),
+      Enter.value('Cogenhoe').for('Address line 2 (optional)'),
+      Enter.value('Northampton').for('Town'),
+      Enter.value('Northamptonshire').for('County (optional)'),
+      Enter.value('NN7 1NN').for('Postcode'),
+      Enter.value('NN7 2NN').for('Project postcode'),
+      Continue.journey(),
 
-      // // check-your-details
-      // Ensure.url().is('check-your-details'),
-      // Ensure.heading().is('Check your details'),
-      // Ensure.screenMatchesDesign(),
-      // Continue.journey(),
+      // check-your-details
+      Ensure.url().is('check-your-details'),
+      Ensure.heading().is('Check your details'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
 
-      // // declaration
-      // Ensure.url().is('declaration'),
-      // Ensure.heading().is('Confirm and send'),
-      // Ensure.screenMatchesDesign(),
-      // Confirm.andSend(),
+      // declaration
+      Ensure.url().is('declaration'),
+      Ensure.heading().is('Confirm and send'),
+      Ensure.screenMatchesDesign(),
+      Confirm.andSend(),
 
-      // // confirmation
-      // Ensure.url().is('confirmation'),
-      // Ensure.heading().is('Details submitted'),
-      // Ensure.screenMatchesDesign().ignoring('//h1/following-sibling::div[1]/strong') // reference number element
+      // confirmation
+      Ensure.url().is('confirmation'),
+      Ensure.heading().is('Details submitted'),
+      Ensure.screenMatchesDesign().ignoring('//h1/following-sibling::div[1]/strong') // reference number element
     ])
   })
 })
