@@ -29,33 +29,33 @@ describe('Adding Value', () => {
       Select.option('A grower or producer of agricultural or horticultural produce'),
       Continue.journey(),
 
-      // // what-is-the-legal-status-of-the-business
-      // Ensure.url().is('what-is-the-legal-status-of-the-business'),
-      // Ensure.heading().is('What is the legal status of the business?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.option('Sole trader'),
-      // Continue.journey(),
+      // what-is-the-legal-status-of-the-business
+      Ensure.url().is('what-is-the-legal-status-of-the-business'),
+      Ensure.heading().is('What is the legal status of the business?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Sole trader'),
+      Continue.journey(),
 
-      // // is-the-planned-project-in-england
-      // Ensure.url().is('is-the-planned-project-in-england'),
-      // Ensure.heading().is('Is the planned project in England?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.option('Yes'),
-      // Continue.journey(),
+      // is-the-planned-project-in-england
+      Ensure.url().is('is-the-planned-project-in-england'),
+      Ensure.heading().is('Is the planned project in England?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Yes'),
+      Continue.journey(),
 
-      // // what-is-the-estimated-cost-of-the-items
-      // Ensure.url().is('what-is-the-estimated-cost-of-the-items'),
-      // Ensure.heading().is('What is the estimated cost of the items?'),
-      // Ensure.screenMatchesDesign(),
-      // Enter.value(62500).for('Enter amount'),
-      // Continue.journey(),
+      // what-is-the-estimated-cost-of-the-items
+      Ensure.url().is('what-is-the-estimated-cost-of-the-items'),
+      Ensure.heading().is('What is the estimated cost of the items?'),
+      Ensure.screenMatchesDesign(),
+      Enter.value(62500).for('Enter amount'),
+      Continue.journey(),
 
-      // // can-you-pay-the-remaining-costs
-      // Ensure.url().is('can-you-pay-the-remaining-costs'),
-      // Ensure.heading().is('Can you pay the remaining costs of £37,500.00?'),
-      // Ensure.screenMatchesDesign(),
-      // Select.option('Yes'),
-      // Continue.journey(),
+      // can-you-pay-the-remaining-costs
+      Ensure.url().is('can-you-pay-the-remaining-costs'),
+      Ensure.heading().is('Can you pay the remaining costs of £37,500.00?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Yes'),
+      Continue.journey(),
 
       // // products-processed
       // Ensure.url().is('products-processed'),
