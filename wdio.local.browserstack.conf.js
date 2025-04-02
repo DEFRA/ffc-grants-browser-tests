@@ -1,4 +1,5 @@
 import allure from 'allure-commandline'
+import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 
 export const config = {
   user: process.env.BROWSERSTACK_USERNAME,
@@ -7,47 +8,8 @@ export const config = {
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],
-  maxInstances: 1,
-  capabilities: [
-    {
-      browserName: 'Chrome',
-      'wdio-ics:options': {
-        logName: 'chrome-win',
-      },
-      'bstack:options': {
-        idleTimeout: 300,
-        resolution: '1920x1080',
-        browserVersion: 'latest',
-        os: 'Windows',
-        osVersion: '11'
-      }
-    },
-    {
-      browserName: 'Chrome',
-      'wdio-ics:options': {
-        logName: 'chrome-mac',
-      },
-      'bstack:options': {
-        idleTimeout: 300,
-        resolution: '1920x1080',
-        browserVersion: 'latest',
-        os: 'OS X',
-        osVersion: 'Monterey'
-      }
-    },
-    {
-      browserName: 'Safari',
-      'wdio-ics:options': {
-        logName: 'safari-iphone',
-      },
-      'bstack:options': {
-        idleTimeout: 300,
-        deviceOrientation: 'portrait',
-        deviceName: 'iPhone 16',
-        osVersion: '18'
-      }
-    }
-  ],
+  maxInstances: 10,
+  capabilities: browserStackCapabilities,
   services: [
     [
       'browserstack', {
@@ -70,7 +32,6 @@ export const config = {
       }
     ]
   ],
-  execArgv: ['--loader', 'esm-module-alias/loader'],
   logLevel: 'info',
   bail: 1,
   waitforTimeout: 10000,

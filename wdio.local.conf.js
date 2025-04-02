@@ -8,10 +8,9 @@ export const config = {
   maxInstances: 1,
   capabilities: [
     {
-      maxInstances: 1,
-      browserName: 'chrome',
+      browserName: 'Chrome',
       'wdio-ics:options': {
-        logName: 'chrome-win',
+        logName: 'win-chrome',
       },
       'goog:chromeOptions': {
         args: [
@@ -31,7 +30,6 @@ export const config = {
       }
     ]
   ],
-  execArgv: ['--loader', 'esm-module-alias/loader'],
   logLevel: 'info',
   bail: 1,
   waitforTimeout: 10000,

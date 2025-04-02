@@ -4,6 +4,7 @@ import Confirm from '../screenplay/tasks/confirm.js'
 import Continue from '../screenplay/tasks/continue.js'
 import Ensure from '../screenplay/tasks/ensure.js'
 import Enter from '../screenplay/tasks/enter.js'
+import Maximise from '../screenplay/tasks/maximise.js'
 import Navigate from '../screenplay/tasks/navigate.js'
 import Select from '../screenplay/tasks/select.js'
 import Start from '../screenplay/tasks/start.js'
@@ -11,9 +12,9 @@ import Start from '../screenplay/tasks/start.js'
 describe('Adding Value', () => {
   it('should complete application journey', async () => {
     const agent = new Actor()
-    await browser.maximizeWindow()
 
     await agent.attemptsTo([
+      Maximise.browser(),
       Navigate.to('/adding-value/start'),
 
       // start

@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import { ProxyAgent, setGlobalDispatcher } from 'undici'
 import { bootstrap } from 'global-agent'
+import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 
 const dispatcher = new ProxyAgent({
   uri: 'http://localhost:3128'
@@ -16,52 +17,13 @@ export const config = {
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],
-  maxInstances: 1,
+  maxInstances: 10,
   commonCapabilities: {
     'bstack:options': {
       buildName: `ffc-grants-browser-tests-${process.env.ENVIRONMENT}`
     }
   },
-  capabilities: [
-    {
-      browserName: 'Chrome',
-      'wdio-ics:options': {
-        logName: 'chrome-win',
-      },
-      'bstack:options': {
-        idleTimeout: 300,
-        resolution: '1920x1080',
-        browserVersion: 'latest',
-        os: 'Windows',
-        osVersion: '11'
-      }
-    },
-    {
-      browserName: 'Chrome',
-      'wdio-ics:options': {
-        logName: 'chrome-mac',
-      },
-      'bstack:options': {
-        idleTimeout: 300,
-        resolution: '1920x1080',
-        browserVersion: 'latest',
-        os: 'OS X',
-        osVersion: 'Monterey'
-      }
-    },
-    {
-      browserName: 'Safari',
-      'wdio-ics:options': {
-        logName: 'safari-iphone',
-      },
-      'bstack:options': {
-        idleTimeout: 300,
-        deviceOrientation: 'portrait',
-        deviceName: 'iPhone 16',
-        osVersion: '18'
-      }
-    }
-  ],
+  capabilities: browserStackCapabilities,
   services: [
     [
       'browserstack', {
@@ -88,7 +50,6 @@ export const config = {
       }
     ]
   ],
-  execArgv: ['--loader', 'esm-module-alias/loader'],
   logLevel: 'info',
   bail: 0,
   waitforTimeout: 10000,

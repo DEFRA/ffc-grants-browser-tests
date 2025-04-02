@@ -15,7 +15,7 @@ export default class Enter {
     }
 
     async perform() {
-        const element = await $(`//label[contains(text(),'${this.label}')]/following::*[name()='input' or name()='select'][1]`)
+        const element = await $(`//label[contains(text(),'${this.label}')]/following::input[1]`)
         const tag = await element.getTagName()
         if (tag === 'select') {
           await element.selectByVisibleText(this.value)

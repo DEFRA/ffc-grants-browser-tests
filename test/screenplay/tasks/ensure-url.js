@@ -1,4 +1,5 @@
 import { browser } from '@wdio/globals'
+import { expect } from 'chai'
 
 export default class EnsureUrl {
     is(expectation) {
@@ -7,11 +8,13 @@ export default class EnsureUrl {
     }
 
     async perform() {
+        var actualUrl
         const doesActualUrlEndWithExpectedPath = await this.#pollForSuccess(async () => {
-            const actualUrl = await browser.getUrl()
+            actualUrl = await browser.getUrl()
             return await actualUrl.endsWith(this.expectation)
         })
-        await expect(doesActualUrlEndWithExpectedPath).toBe(true)
+
+        expect(doesActualUrlEndWithExpectedPath, `Expected URL to be: ${this.expectation} but was: ${actualUrl}`).to.be.true
     }
 
     async #pollForSuccess(predicate) {
