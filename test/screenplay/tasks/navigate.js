@@ -1,5 +1,3 @@
-import { browser } from '@wdio/globals'
-
 export default class Navigate {
     constructor(url) {
         this.url = url

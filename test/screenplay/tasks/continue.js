@@ -1,5 +1,3 @@
-import { $ } from '@wdio/globals'
-
 export default class Continue {
     static journey() {
         return new Continue()

@@ -1,4 +1,3 @@
-import { browser } from '@wdio/globals'
 import { expect } from 'chai'
 
 export default class EnsureUrl {

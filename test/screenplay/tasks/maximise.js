@@ -1,5 +1,3 @@
-import { browser } from '@wdio/globals'
-
 export default class Maximise {
     static browser() {
         return new Maximise()

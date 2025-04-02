@@ -1,5 +1,3 @@
-import { $ } from '@wdio/globals'
-
 export default class Select {
     constructor(options) {
         this.options = options

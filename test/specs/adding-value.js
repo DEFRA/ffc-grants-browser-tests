@@ -1,4 +1,3 @@
-import { $, browser } from '@wdio/globals'
 import Actor from '../screenplay/actor.js'
 import Confirm from '../screenplay/tasks/confirm.js'
 import Continue from '../screenplay/tasks/continue.js'

@@ -1,5 +1,4 @@
 import path from 'node:path'
-import { browser } from '@wdio/globals'
 import { expect } from 'chai'
 
 export default class EnsureSnapshot {

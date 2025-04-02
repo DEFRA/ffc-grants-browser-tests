@@ -1,5 +1,3 @@
-import { $ } from '@wdio/globals'
-
 export default class Confirm {
     static andSend() {
         return new Confirm()

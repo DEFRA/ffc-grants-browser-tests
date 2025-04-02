@@ -1,5 +1,3 @@
-import { $ } from '@wdio/globals'
-
 export default class EnsureHeading {
     is(expectation) {
         this.expectation = expectation
