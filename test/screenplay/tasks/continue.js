@@ -4,6 +4,8 @@ export default class Continue {
     }
 
     async perform() {
-        await $(`//button[contains(text(),'Continue')]`).click()
+        const wdioElement = await $(`//button[contains(text(),'Continue')]`)
+        await browser.execute(function (e) { e.focus() }, wdioElement)
+        await wdioElement.click()
     }
 }

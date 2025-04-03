@@ -1,9 +1,9 @@
 export const browserStackCapabilities = [
   // windows
   {
-    browserName: 'Edge',
+    browserName: 'Chrome',
     'wdio-ics:options': {
-      logName: 'win-edge',
+      logName: 'win-chrome',
     },
     'bstack:options': {
       idleTimeout: 300,
@@ -14,9 +14,9 @@ export const browserStackCapabilities = [
     }
   },
   {
-    browserName: 'Chrome',
+    browserName: 'Edge',
     'wdio-ics:options': {
-      logName: 'win-chrome',
+      logName: 'win-edge',
     },
     'bstack:options': {
       idleTimeout: 300,
@@ -41,9 +41,9 @@ export const browserStackCapabilities = [
   },
   // macOS
   {
-    browserName: 'Safari',
+    browserName: 'Chrome',
     'wdio-ics:options': {
-      logName: 'osx-safari',
+      logName: 'osx-chrome',
     },
     'bstack:options': {
       idleTimeout: 300,
@@ -54,9 +54,9 @@ export const browserStackCapabilities = [
     }
   },
   {
-    browserName: 'Chrome',
+    browserName: 'Safari',
     'wdio-ics:options': {
-      logName: 'osx-chrome',
+      logName: 'osx-safari',
     },
     'bstack:options': {
       idleTimeout: 300,
@@ -81,6 +81,18 @@ export const browserStackCapabilities = [
   },
   // iOS
   {
+    browserName: 'Chrome',
+    'wdio-ics:options': {
+      logName: 'ios-chrome',
+    },
+    'bstack:options': {
+      idleTimeout: 300,
+      deviceOrientation: 'portrait',
+      deviceName: 'iPhone 16',
+      osVersion: '18'
+    }
+  },
+  {
     browserName: 'Safari',
     'wdio-ics:options': {
       logName: 'ios-safari',
@@ -92,16 +104,29 @@ export const browserStackCapabilities = [
       osVersion: '18'
     }
   },
+  // android
   {
     browserName: 'Chrome',
     'wdio-ics:options': {
-      logName: 'ios-chrome',
+      logName: 'android-chrome',
     },
     'bstack:options': {
       idleTimeout: 300,
       deviceOrientation: 'portrait',
-      deviceName: 'iPhone 16',
-      osVersion: '18'
+      deviceName: 'Samsung Galaxy S23',
+      osVersion: '13.0'
+    }
+  },
+  {
+    browserName: 'Samsung',
+    'wdio-ics:options': {
+      logName: 'android-samsung',
+    },
+    'bstack:options': {
+      idleTimeout: 300,
+      deviceOrientation: 'portrait',
+      deviceName: 'Samsung Galaxy S23',
+      osVersion: '13.0'
     }
   }
 ]
