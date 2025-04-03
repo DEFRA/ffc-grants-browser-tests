@@ -13,12 +13,6 @@ export default class Enter {
     }
 
     async perform() {
-        const element = await $(`//label[contains(text(),'${this.label}')]/following::input[1]`)
-        const tag = await element.getTagName()
-        if (tag === 'select') {
-          await element.selectByVisibleText(this.value)
-        } else {
-          await element.setValue(this.value)
-        }
+        await $(`//label[contains(text(),'${this.label}')]/following::input[1]`).setValue(this.value)
     }
 }
