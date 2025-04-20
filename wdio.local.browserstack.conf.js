@@ -4,7 +4,7 @@ import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 export const config = {
   user: process.env.BROWSERSTACK_USERNAME,
   key: process.env.BROWSERSTACK_KEY,
-  baseUrl: `https://forms-runner-v2.test.cdp-int.defra.cloud`,
+  baseUrl: `https://grants-ui.test.cdp-int.defra.cloud`,
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],

@@ -1,13 +1,12 @@
+import NavigateBack from "./navigate-back.js"
+import NavigateTo from "./navigate-to.js"
+
 export default class Navigate {
-    constructor(url) {
-        this.url = url
+    static back() {
+        return new NavigateBack()
     }
 
     static to(url) {
-        return new Navigate(url)
-    }
-
-    async perform() {
-        await browser.url(this.url)
+        return new NavigateTo(url)
     }
 }

@@ -13,7 +13,7 @@ global.GLOBAL_AGENT.HTTP_PROXY = 'http://localhost:3128'
 export const config = {
   user: process.env.BROWSERSTACK_USERNAME,
   key: process.env.BROWSERSTACK_KEY,
-  baseUrl: `https://forms-runner-v2.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+  baseUrl: `https://grants-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],

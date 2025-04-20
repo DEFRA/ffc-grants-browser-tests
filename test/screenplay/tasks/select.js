@@ -7,7 +7,7 @@ export default class Select {
         return new Select([option])
     }
 
-    static options(options) {
+    static options(...options) {
         return new Select(options)
     }
 

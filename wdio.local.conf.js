@@ -1,7 +1,7 @@
 import allure from 'allure-commandline'
 
 export const config = {
-  baseUrl: `https://forms-runner-v2.test.cdp-int.defra.cloud`,
+  baseUrl: `https://grants-ui.test.cdp-int.defra.cloud`,
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],
