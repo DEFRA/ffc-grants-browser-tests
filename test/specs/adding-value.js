@@ -12,7 +12,7 @@ describe('Adding Value', () => {
   it('should complete application journey', async () => {
     const agent = new Actor()
 
-    await agent.attemptsTo([
+    await agent.attemptsTo(
       Maximise.browser(),
       Navigate.to('/adding-value/start'),
 
@@ -87,7 +87,13 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // planning-permission
-      Select.option('Secured'),
+      Select.option('Should be in place by the time I make my full application'),
+      Continue.journey(),
+
+      // planning-permission-may-apply
+      Ensure.url().is('planning-permission-may-apply'),
+      Ensure.heading().is('You may be able to apply for a grant from this scheme'),
+      Ensure.screenMatchesDesign(),
       Continue.journey(),
 
       // project-start
@@ -335,6 +341,6 @@ describe('Adding Value', () => {
       Ensure.url().is('confirmation'),
       Ensure.heading().is('Details submitted'),
       Ensure.screenMatchesDesign().ignoring('//h1/following-sibling::div[1]/strong') // reference number element
-    ])
+    )
   })
 })
