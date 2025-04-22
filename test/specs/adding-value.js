@@ -198,9 +198,15 @@ describe('Adding Value', () => {
       Enter.value('62500').for('Enter amount'),
       Continue.journey(),
 
+      // potential-funding
+      Ensure.url().is('potential-funding'),
+      Ensure.heading().is('Potential grant funding'),
+      Ensure.screenMatchesDesign(),
+      Continue.journey(),
+
       // remaining-costs
       Ensure.url().is('remaining-costs'),
-      // Ensure.heading().is('Can you pay the remaining costs of £37,500?'), [TO BE FIXED]
+      Ensure.heading().is('Can you pay the remaining costs of £37,500?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'),
       Continue.journey(),
