@@ -7,6 +7,7 @@ import Maximise from '../screenplay/tasks/maximise.js'
 import Navigate from '../screenplay/tasks/navigate.js'
 import Select from '../screenplay/tasks/select.js'
 import Start from '../screenplay/tasks/start.js'
+import Unselect from '../screenplay/tasks/unselect.js'
 
 describe('Adding Value', () => {
   it('should complete application journey', async () => {
@@ -36,6 +37,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // nature-of-business
+      Ensure.url().is('nature-of-business'),
       Select.option('A grower or producer of agricultural or horticultural produce'),
       Continue.journey(),
 
@@ -53,6 +55,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // legal-status
+      Ensure.url().is('legal-status'),
       Select.option('Sole trader'),
       Continue.journey(),
 
@@ -70,6 +73,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // country
+      Ensure.url().is('country'),
       Select.option('Yes'),
       Continue.journey(),
 
@@ -87,6 +91,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // planning-permission
+      Ensure.url().is('planning-permission'),
       Select.option('Should be in place by the time I make my full application'),
       Continue.journey(),
 
@@ -110,6 +115,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // project-start
+      Ensure.url().is('project-start'),
       Select.option('Yes, preparatory work'),
       Continue.journey(),
 
@@ -147,6 +153,7 @@ describe('Adding Value', () => {
       Navigate.back(), // navigate back to smaller abattoir journey
 
       // smaller-abattoir
+      Ensure.url().is('smaller-abattoir'),
       Select.option('Yes'), // take smaller abattoir journey
       Continue.journey(),
 
@@ -164,6 +171,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // other-farmers
+      Ensure.url().is('other-farmers'),
       Select.option('Yes'),
       Continue.journey(),
 
@@ -171,6 +179,18 @@ describe('Adding Value', () => {
       Ensure.url().is('project-items'),
       Ensure.heading().is('What eligible items does your project need?'),
       Ensure.screenMatchesDesign(),
+      Select.option('None of the above'),
+      Continue.journey(),
+
+      // cannot-apply-project-items
+      Ensure.url().is('cannot-apply-project-items'),
+      Ensure.heading().is('You cannot apply for a grant from this scheme'),
+      Ensure.screenMatchesDesign(),
+      Navigate.back(),
+
+      // project-items
+      Ensure.url().is('project-items'),
+      Unselect.option('None of the above'),
       Select.option('Constructing or improving buildings for processing'),
       Continue.journey(),
 
@@ -195,6 +215,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // project-cost
+      Ensure.url().is('project-cost'),
       Enter.value('62500').for('Enter amount'),
       Continue.journey(),
 
@@ -218,6 +239,7 @@ describe('Adding Value', () => {
       Navigate.back(),
 
       // remaining-costs
+      Ensure.url().is('remaining-costs'),
       Select.option('Yes'),
       Continue.journey(),
 
