@@ -10,10 +10,12 @@ This is the cross-browser compatibility test suite for non-land based grant appl
   - Chrome
   - Safari
   - Firefox
-- iOS, iPhone 16
+- Mac OS X Monterey
+  - Safari 15.6
+- iOS on iPhone 16
   - Chrome
   - Safari
-- Android, Samsung Galaxy S23
+- Android on Samsung Galaxy S23
   - Chrome
   - Samsung Internet
 
