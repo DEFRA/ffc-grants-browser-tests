@@ -10,22 +10,22 @@ export default class EnsureSnapshot {
     }
 
     async perform() {
-        const pathSegments = (await browser.getUrl()).split('/')
-        const screenName = pathSegments.pop()
-        const grantCode = pathSegments.pop()
-
         for (const locator of this.ignoredLocators) {
             const wdioElement = await $(locator)
             await browser.execute((e) => { e.style.visibility = 'hidden' }, wdioElement)
         }
 
-        const options = {
+        const pathSegments = (await browser.getUrl()).split('/')
+        const screenName = pathSegments.pop()
+        const grantCode = pathSegments.pop()
+
+        const checkFullPageOptions = {
             actualFolder: path.join(process.cwd(), "test", "snapshots", "actual", grantCode),
             baselineFolder: path.join(process.cwd(), "test", "snapshots", "baseline", grantCode),
             diffFolder: path.join(process.cwd(), "test", "snapshots", "diff", grantCode),
         }
 
-        const mismatchPercentage = await browser.checkFullPageScreen(screenName, options)
+        const mismatchPercentage = await browser.checkFullPageScreen(screenName, checkFullPageOptions)
         expect(mismatchPercentage).to.be.lessThan(0.25, `mismatch percentage exceeds threshold for: ${screenName}`)
     }
 }

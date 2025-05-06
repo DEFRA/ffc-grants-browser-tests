@@ -1,3 +1,4 @@
+import { addArgument as addAllureArgument } from "@wdio/allure-reporter"
 import Actor from '../screenplay/actor.js'
 import Confirm from '../screenplay/tasks/confirm.js'
 import Continue from '../screenplay/tasks/continue.js'
@@ -11,6 +12,8 @@ import Unselect from '../screenplay/tasks/unselect.js'
 
 describe('Adding Value', () => {
   it('should complete application journey', async () => {
+    addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
+
     const agent = new Actor()
 
     await agent.attemptsTo(
