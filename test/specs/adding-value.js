@@ -10,8 +10,11 @@ import Select from '../screenplay/tasks/select.js'
 import Start from '../screenplay/tasks/start.js'
 
 describe('Adding Value page snapshot verification', () => {
-  addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
   const agent = new Actor()
+
+  beforeEach(function () {
+    addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
+  })
 
   it('start', async () => {
     await agent.attemptsTo(
@@ -194,11 +197,7 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('Do you want to build new controlled atmosphere storage for top fruit?'),
       Ensure.screenMatchesDesign(),
       Navigate.back(), // navigate back to smaller abattoir journey
-    )
-  })
 
-  it('smaller-abattoir', async () => {
-    await agent.attemptsTo(
       Ensure.url().is('smaller-abattoir'),
       Select.option('Yes'), // take smaller abattoir journey
       Continue.journey()
