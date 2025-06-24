@@ -20,9 +20,9 @@ export default class EnsureSnapshot {
         const grantCode = pathSegments.pop()
 
         const checkFullPageOptions = {
-            actualFolder: path.join(process.cwd(), "test", "snapshots", "actual", grantCode),
+            actualFolder: path.join(process.cwd(), "test", "snapshots", "temp", "actual", grantCode),
             baselineFolder: path.join(process.cwd(), "test", "snapshots", "baseline", grantCode),
-            diffFolder: path.join(process.cwd(), "test", "snapshots", "diff", grantCode),
+            diffFolder: path.join(process.cwd(), "test", "snapshots", "temp", "diff", grantCode),
         }
 
         const mismatchPercentage = await browser.checkFullPageScreen(screenName, checkFullPageOptions)

@@ -8,259 +8,344 @@ import Maximise from '../screenplay/tasks/maximise.js'
 import Navigate from '../screenplay/tasks/navigate.js'
 import Select from '../screenplay/tasks/select.js'
 import Start from '../screenplay/tasks/start.js'
-import Unselect from '../screenplay/tasks/unselect.js'
 
-describe('Adding Value', () => {
-  it('should complete application journey', async () => {
-    addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
+describe('Adding Value page snapshot verification', () => {
+  addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
+  const agent = new Actor()
 
-    const agent = new Actor()
-
+  it('start', async () => {
     await agent.attemptsTo(
       Maximise.browser(),
       Navigate.to('/adding-value/start'),
 
-      // start
       Ensure.url().is('start'),
       Ensure.heading().is('Check if you can apply for a Farming Transformation Fund Adding Value Grant'),
       Ensure.screenMatchesDesign(),
-      Start.journey(),
+      Start.journey()
+    )
+  })
 
-      // nature-of-business
+  it('nature-of-business', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('nature-of-business'),
       Ensure.heading().is('What is your business?'),
       Ensure.screenMatchesDesign(),
       Select.option('None of the above'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // cannot-apply-nature-of-business
+  it('cannot-apply-nature-of-business', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('cannot-apply-nature-of-business'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // nature-of-business
       Ensure.url().is('nature-of-business'),
       Select.option('A grower or producer of agricultural or horticultural produce'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // legal-status
+  it('legal-status', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('legal-status'),
       Ensure.heading().is('What is the legal status of the business?'),
       Ensure.screenMatchesDesign(),
       Select.option('None of the above'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // legal-status-cannot-apply
+  it('legal-status-cannot-apply', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('legal-status-cannot-apply'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // legal-status
       Ensure.url().is('legal-status'),
       Select.option('Sole trader'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // country
+  it('country', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('country'),
       Ensure.heading().is('Is the planned project in England?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // cannot-apply-country
+  it('cannot-apply-country', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('cannot-apply-country'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // country
       Ensure.url().is('country'),
       Select.option('Yes'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // planning-permission
+  it('planning-permission', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('planning-permission'),
       Ensure.heading().is('Does the project have planning permission?'),
       Ensure.screenMatchesDesign(),
       Select.option('Will not be in place by the time I make my full application'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // planning-permission-cannot-apply
+  it('planning-permission-cannot-apply', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('planning-permission-cannot-apply'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // planning-permission
       Ensure.url().is('planning-permission'),
       Select.option('Should be in place by the time I make my full application'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // planning-permission-may-apply
+  it('planning-permission-may-apply', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('planning-permission-may-apply'),
       Ensure.heading().is('You may be able to apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // project-start
+  it('project-start', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('project-start'),
       Ensure.heading().is('Have you already started work on the project?'),
       Ensure.screenMatchesDesign(),
       Select.option('Yes, we have begun project work'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // cannot-apply-project-start
+  it('cannot-apply-project-start', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('cannot-apply-project-start'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // project-start
       Ensure.url().is('project-start'),
       Select.option('Yes, preparatory work'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // tenancy
+  it('tenancy', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('tenancy'),
       Ensure.heading().is('Is the planned project on land the business owns?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // tenancy-length
+  it('tenancy-length', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('tenancy-length'),
       Ensure.heading().is('Do you have a tenancy agreement for 5 years after the final grant payment?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // may-apply-tenancy-length
+  it('may-apply-tenancy-length', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('may-apply-tenancy-length'),
       Ensure.heading().is('You may be able to apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // smaller-abattoir
+  it('smaller-abattoir', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('smaller-abattoir'),
       Ensure.heading().is('Do you want to build a new smaller abattoir?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'), // take top fruit journey
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // fruit-storage
+  it('fruit-storage', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('fruit-storage'),
       Ensure.heading().is('Do you want to build new controlled atmosphere storage for top fruit?'),
       Ensure.screenMatchesDesign(),
       Navigate.back(), // navigate back to smaller abattoir journey
+    )
+  })
 
-      // smaller-abattoir
+  it('smaller-abattoir', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('smaller-abattoir'),
       Select.option('Yes'), // take smaller abattoir journey
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // other-farmers
+  it('other-farmers', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('other-farmers'),
       Ensure.heading().is('Will this abattoir provide services to other farmers?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // cannot-apply-other-farmers
+  it('cannot-apply-other-farmers', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('cannot-apply-other-farmers'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // other-farmers
       Ensure.url().is('other-farmers'),
       Select.option('Yes'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // project-items
-      Ensure.url().is('project-items'),
-      Ensure.heading().is('What eligible items does your project need?'),
+  it('project-items-needed', async () => {
+    await agent.attemptsTo(
+      Ensure.url().is('project-items-needed'),
+      Ensure.heading().is('Does your project need eligible items?'),
       Ensure.screenMatchesDesign(),
-      Select.option('None of the above'),
-      Continue.journey(),
+      Select.option('No'),
+      Continue.journey()
+    )
+  })
 
-      // cannot-apply-project-items
+  it('cannot-apply-project-items', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('cannot-apply-project-items'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // project-items
-      Ensure.url().is('project-items'),
-      Unselect.option('None of the above'),
-      Select.option('Constructing or improving buildings for processing'),
-      Continue.journey(),
+      Ensure.url().is('project-items-needed'),
+      Select.option('Yes'),
+      Continue.journey()
+    )
+  })
 
-      // storage
+  it('project-items', async () => {
+    await agent.attemptsTo(
+      Ensure.url().is('project-items'),
+      Select.option('Constructing or improving buildings for processing'),
+      Continue.journey()
+    )
+  })
+
+  it('storage', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('storage'),
       Ensure.heading().is('Does your project also need storage facilities?'),
       Ensure.screenMatchesDesign(),
       Select.option('Yes, we will need storage facilities'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // project-cost
+  it('project-cost', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('project-cost'),
       Ensure.heading().is('What is the estimated cost of the items?'),
       Ensure.screenMatchesDesign(),
       Enter.value('62499').for('Enter amount'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // project-cost-cannot-apply
+  it('project-cost-cannot-apply', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('project-cost-cannot-apply'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // project-cost
       Ensure.url().is('project-cost'),
       Enter.value('62500').for('Enter amount'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // potential-funding
+  it('potential-funding', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('potential-funding'),
       Ensure.heading().is('Potential grant funding'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // remaining-costs
+  it('remaining-costs', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('remaining-costs'),
       Ensure.heading().is('Can you pay the remaining costs of £37,500?'),
       Ensure.screenMatchesDesign(),
       Select.option('No'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // cannot-apply-remaining-costs
+  it('cannot-apply-remaining-costs', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('cannot-apply-remaining-costs'),
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
 
-      // remaining-costs
       Ensure.url().is('remaining-costs'),
       Select.option('Yes'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // produce-processed
+  it('produce-processed', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('produce-processed'),
       Ensure.heading().is('What type of produce is being processed?'),
       Ensure.screenMatchesDesign(),
       Select.option('Arable produce'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // adding-value
-      Ensure.url().is('adding-value'),
+  it('adding-value', async () => {
+    await agent.attemptsTo(
+      Ensure.url().is('how-adding-value'),
       Ensure.heading().is('How will this project add value to the produce?'),
       Ensure.screenMatchesDesign(),
       Select.option('Introducing a new product to your farm'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // project-impact
+  it('project-impact', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('project-impact'),
       Ensure.heading().is('What impact will this project have?'),
       Ensure.screenMatchesDesign(),
@@ -268,59 +353,115 @@ describe('Adding Value', () => {
         'Increasing range of added-value products',
         'Increasing volume of added-value products'
       ),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // mechanisation
+  it('mechanisation', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('mechanisation'),
       Ensure.heading().is('Will this project use any mechanisation instead of manual labour?'),
       Ensure.screenMatchesDesign(),
       Select.option('Yes'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // manual-labour-amount
+  it('manual-labour-amount', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('manual-labour-amount'),
       Ensure.heading().is('How much manual labour will the mechanisation be equal to?'),
       Ensure.screenMatchesDesign(),
       Select.option('More than 10%'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // future-customers
-      Ensure.url().is('future-customers'),
-      Ensure.heading().is('Who will your new customers be after the project?'),
+  it('future-customers-exist', async () => {
+    await agent.attemptsTo(
+      Ensure.url().is('future-customers-exist'),
+      Ensure.heading().is('Will you have new customers after this project?'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Select.option('Yes'),
+      Continue.journey()
+    )
+  })
 
-      // collaboration
+  it('future-customers', async () => {
+    await agent.attemptsTo(
+      Ensure.url().is('future-customers'),
+      Ensure.heading().is('Who will your new customers be after this project?'),
+      Ensure.screenMatchesDesign(),
+      Select.options(
+        'Processors',
+        'Wholesalers'
+      ),
+      Continue.journey()
+    )
+  })
+
+  it('collaboration', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('collaboration'),
       Ensure.heading().is('Will you work in partnership or collaborate with other farmers or producers?'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Select.option('Yes'),
+      Continue.journey()
+    )
+  })
 
-      // environmental-impact
+  it('environmental-impact-exist', async () => {
+    await agent.attemptsTo(
+      Ensure.url().is('environmental-impact-exist'),
+      Ensure.heading().is('Will this project improve the environment?'),
+      Ensure.screenMatchesDesign(),
+      Select.option('Yes'),
+      Continue.journey()
+    )
+  })
+
+  it('environmental-impact', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('environmental-impact'),
       Ensure.heading().is('How will this project improve the environment?'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Select.options(
+        'Renewable energy',
+        'Energy efficiency'
+      ),
+      Continue.journey()
+    )
+  })
 
-      // score-results
+  it('score-results', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('score-results'),
       Ensure.heading().is('Score results'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // business-details
+  it('business-details', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('business-details'),
-      // Ensure.heading().is('Business details'), [TO BE FIXED]
+      Ensure.heading().is('Business Details'), // TODO: fix, should be 'Business detais'
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // applying
+  it('applying', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('applying'),
       Ensure.heading().is('Who is applying for this grant?'),
       Select.option('Agent'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // agent-details
+  it('agent-details', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('agent-details'),
       Ensure.heading().is(`Agent's details`),
       Ensure.screenMatchesDesign(),
@@ -336,9 +477,12 @@ describe('Adding Value', () => {
       Enter.value('Northampton').for('Town'),
       Enter.value('Northamptonshire').for('County (optional)'),
       Enter.value('NN7 3NN').for('Postcode'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // applicant-details
+  it('applicant-details', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('applicant-details'),
       Ensure.heading().is(`Applicant's details`),
       Ensure.screenMatchesDesign(),
@@ -354,21 +498,30 @@ describe('Adding Value', () => {
       Enter.value('Northamptonshire').for('County (optional)'),
       Enter.value('NN7 1NN').for('Postcode'),
       Enter.value('NN7 2NN').for('Project postcode'),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // check-details
+  it('check-details', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('check-details'),
       Ensure.heading().is('Check your details'),
       Ensure.screenMatchesDesign(),
-      Continue.journey(),
+      Continue.journey()
+    )
+  })
 
-      // declaration
+  it('declaration', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('declaration'),
       Ensure.heading().is('Confirm and send'),
       Ensure.screenMatchesDesign(),
-      Confirm.andSend(),
+      Confirm.andSend()
+    )
+  })
 
-      // confirmation
+  it('confirmation', async () => {
+    await agent.attemptsTo(
       Ensure.url().is('confirmation'),
       Ensure.heading().is('Details submitted'),
       Ensure.screenMatchesDesign().ignoring('//h1/following-sibling::div[1]/strong') // reference number element

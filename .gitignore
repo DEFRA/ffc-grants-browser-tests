@@ -15,5 +15,4 @@ node_modules
 npm-debug.log
 FAILED
 logs
-test/snapshots/actual
-test/snapshots/diff
+test/snapshots/temp

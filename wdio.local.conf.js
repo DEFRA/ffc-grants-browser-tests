@@ -31,6 +31,9 @@ export const config = {
     ]
   ],
   logLevel: 'info',
+  logLevels: {
+    webdriver: 'error'
+  },
   bail: 1,
   waitforTimeout: 10000,
   waitforInterval: 200,
@@ -54,20 +57,18 @@ export const config = {
     await browser.takeScreenshot()
   },
   onComplete: function (exitCode, config, capabilities, results) {
-    const reportError = new Error('Could not generate Allure report')
     const generation = allure(['generate', 'allure-results', '--clean'])
 
     return new Promise((resolve, reject) => {
-      const generationTimeout = setTimeout(() => reject(reportError), 60000)
+      const generationTimeout = setTimeout(() => reject(new Error('Could not generate Allure report, timeout exceeded')), 30000)
 
       generation.on('exit', function (exitCode) {
         clearTimeout(generationTimeout)
 
         if (exitCode !== 0) {
-          return reject(reportError)
+          return reject(new Error(`Could not generate Allure report, exited with code: ${exitCode}`))
         }
 
-        allure(['open'])
         resolve()
       })
     })

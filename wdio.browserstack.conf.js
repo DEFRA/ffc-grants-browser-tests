@@ -51,6 +51,9 @@ export const config = {
     ]
   ],
   logLevel: 'info',
+  logLevels: {
+    webdriver: 'error'
+  },
   bail: 0,
   waitforTimeout: 10000,
   waitforInterval: 200,
