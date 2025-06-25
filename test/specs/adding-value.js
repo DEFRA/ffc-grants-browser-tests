@@ -14,8 +14,6 @@ describe('Adding Value page snapshot verification', () => {
 
   beforeEach(function () {
     addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
-    if (this.currentTest.parent.tests.some(test => test.state === "failed"))
-      this.skip()
   })
 
   it('start', async () => {

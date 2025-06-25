@@ -13,7 +13,7 @@
     "test:browserstack": "npm run clean && wdio run wdio.browserstack.conf.js",
     "test:local": "npm run clean && wdio run wdio.local.conf.js",
     "test:local:browserstack": "npm run clean && wdio run wdio.local.browserstack.conf.js",
-    "report": "allure generate allure-results --single-file --clean",
+    "report": "allure generate allure-results --clean",
     "report:publish": "npm run report; ./bin/publish-tests.sh"
   },
   "devDependencies": {
