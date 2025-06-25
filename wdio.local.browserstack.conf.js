@@ -54,7 +54,8 @@ export const config = {
     ],
   mochaOpts: {
     ui: 'bdd',
-    timeout: 600000
+    timeout: 600000,
+    bail: true
   },
   afterTest: async function (test, context, { error, result, duration, passed, retries }) {
     await browser.takeScreenshot()

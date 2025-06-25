@@ -12,7 +12,7 @@ import Start from '../screenplay/tasks/start.js'
 describe('Adding Value page snapshot verification', () => {
   const agent = new Actor()
 
-  beforeEach(function () {
+  beforeEach(() => {
     addAllureArgument('logName', browser.options.capabilities['wdio-ics:options'].logName)
   })
 
@@ -20,7 +20,6 @@ describe('Adding Value page snapshot verification', () => {
     await agent.attemptsTo(
       Maximise.browser(),
       Navigate.to('/adding-value/start'),
-
       Ensure.url().is('start'),
       Ensure.heading().is('Check if you can apply for a Farming Transformation Fund Adding Value Grant'),
       Ensure.screenMatchesDesign(),
@@ -44,7 +43,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('nature-of-business'),
       Select.option('A grower or producer of agricultural or horticultural produce'),
       Continue.journey()
@@ -67,7 +65,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('legal-status'),
       Select.option('Sole trader'),
       Continue.journey()
@@ -90,7 +87,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('country'),
       Select.option('Yes'),
       Continue.journey()
@@ -113,7 +109,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('planning-permission'),
       Select.option('Should be in place by the time I make my full application'),
       Continue.journey()
@@ -145,7 +140,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('project-start'),
       Select.option('Yes, preparatory work'),
       Continue.journey()
@@ -196,8 +190,7 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.url().is('fruit-storage'),
       Ensure.heading().is('Do you want to build new controlled atmosphere storage for top fruit?'),
       Ensure.screenMatchesDesign(),
-      Navigate.back(), // navigate back to smaller abattoir journey
-
+      Navigate.back(),
       Ensure.url().is('smaller-abattoir'),
       Select.option('Yes'), // take smaller abattoir journey
       Continue.journey()
@@ -220,7 +213,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('other-farmers'),
       Select.option('Yes'),
       Continue.journey()
@@ -243,7 +235,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('project-items-needed'),
       Select.option('Yes'),
       Continue.journey()
@@ -284,7 +275,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('project-cost'),
       Enter.value('62500').for('Enter amount'),
       Continue.journey()
@@ -316,7 +306,6 @@ describe('Adding Value page snapshot verification', () => {
       Ensure.heading().is('You cannot apply for a grant from this scheme'),
       Ensure.screenMatchesDesign(),
       Navigate.back(),
-
       Ensure.url().is('remaining-costs'),
       Select.option('Yes'),
       Continue.journey()
