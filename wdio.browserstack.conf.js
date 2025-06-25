@@ -78,8 +78,7 @@ export const config = {
   ],
   mochaOpts: {
     ui: 'bdd',
-    timeout: 600000,
-    bail: true
+    timeout: 600000
   },
   afterTest: async function (test, context, { error, result, duration, passed, retries }) {
     if (error) {
